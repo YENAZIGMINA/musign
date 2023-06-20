@@ -29,3 +29,13 @@ $('.animate').scrolla({
     once: false, // 스크롤시 한 번 또는 여러번 실행 설정
     animateCssVersion: 4 // animate.css 버전 (3 or 4)
 });
+
+
+//menuOpen
+//$('.menuOpen .open').on('click',function(){})
+$('.menuOpen .open').click(function(){
+    $('.menuOpen .menuWrap').addClass('on')
+})
+$('.menuWrap .close').click(function(){
+    $('.menuOpen .menuWrap').removeClass('on')
+  })
