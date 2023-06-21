@@ -33,9 +33,16 @@ $('.animate').scrolla({
 
 //menuOpen
 //$('.menuOpen .open').on('click',function(){})
-$('.menuOpen .open').click(function(){
+$('.menuOpen .open').click(function(e){
+    e.preventDefault()
     $('.menuOpen .menuWrap').addClass('on')
-})
-$('.menuWrap .close').click(function(){
+});
+$('.menuWrap .close').click(function(e){
+    e.preventDefault()
     $('.menuOpen .menuWrap').removeClass('on')
-  })
+  });
+
+  $('.menuWrap ul li').click(function(e){
+    e.preventDefault()
+    $('.menuOpen .menuWrap').removeClass('on')
+  });

@@ -6,6 +6,8 @@
 /* font-family: 'Dancing Script', cursive;
 font-family: 'Noto Sans KR', sans-serif; */
 
+
+html {scroll-behavior:smooth;}
 body {
     font-family: 'Noto Sans KR', sans-serif; 
     font-size: 14px;
@@ -18,7 +20,15 @@ body {
     display: block;
     clear: both;
 }
-
+/* inner 넓이에 대한 가이드 */
+.inner {
+    width: 1320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+section .inner .box {
+    float: left; width: 50%;
+}
 
 /* ------------menuOpen------------- */
 .menuOpen {}
@@ -27,7 +37,7 @@ body {
     top: 50%; transform: translateY(-50%);
     right: 0;
     border: none;
-    background-color: none;
+    background: none;
     padding: 30px 22px;
     z-index: 100;
 }
@@ -201,6 +211,53 @@ header {}
 }
 
 
+/* -----------------jurnal--------------- */
+.jurnal {
+    position: relative;
+    padding: 190px 0 120px;
+}
+.jurnal .scroll {
+    position: absolute;
+    left: 50%; top: -20px;
+    transform: translateX(-50%);
+    font-size: 10px; letter-spacing: 5px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    padding-top: 90px;
+}
+.jurnal .scroll::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 6px;
+    height: 75px; width: 1px;
+    background-color: #333;
+}
+.jurnal .box img {
+    margin-top: 100px;
+}
+.jurnal .box .tit {
+    margin-bottom: 40px;
+}
+.jurnal .box ul {
+    border-top: 1px solid #e6e6e6;
+    padding-top: 40px;
+}
+.jurnal .box ul li {
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.jurnal .box ul li h3 {
+    float: left; width: 22%;
+}
+.jurnal .box ul li p {
+    float: left; width: 78%;
+    color: #888;
+}
+.jurnal .more_btn {
+    margin-left: 22%;
+}
+
+
 
 /* -------------이미지 애니메이션--------------- */
 .img.animate__motion {
@@ -313,4 +370,28 @@ header {}
         opacity: 1; 
         transform: none;
     }
+}
+
+
+
+/* ----------------------SVG 애니----------------------- */
+.circleBox {}
+.jurnal .circleBox {
+    width: 700px;
+    position: absolute;
+    right: 13%; top: 100px;
+    z-index: -1;
+}
+.circleBox .svgAni {}
+.circleBox .svgAni path {
+    stroke-dasharray: 2068px;
+    stroke-dashoffset: 0px;
+}
+.circleBox.animate__motion  .svgAni path {
+    animation: dash 1.5s;
+}
+
+@keyframes dash {
+    0% {stroke-dashoffset: 2068px;}
+    100% {stroke-dashoffset: 0px;}
 }
