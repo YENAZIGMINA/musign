@@ -46,3 +46,21 @@ $('.menuWrap .close').click(function(e){
     e.preventDefault()
     $('.menuOpen .menuWrap').removeClass('on')
   });
+
+
+
+//background color 변경 (window는 최고조상이라 '' 필요없지만 body는 넣어야 함)
+$(window).scroll(function(){
+    //$(this)는 window
+    let scrollTop=$(this).scrollTop();
+    console.log(scrollTop)
+    let offset=$('.service').offset().top - 300;
+    //offset --> service영역의 위 높이값 (service의 머리가 닿는 값 = 위 요소들의 높이값)
+    //-300한 이유 --> 스크롤 내릴때 미리 변경되기 위해 높이값 조절
+    
+    if(scrollTop>offset){
+        $('body').addClass('on')
+    }else{
+        $('body').removeClass('on')
+    }
+});

@@ -193,7 +193,7 @@ header {}
     margin: 0 auto;
 }
 .visual .mainImg {float: left; width: 50%;}
-.visual .mainImg .img {width: 90%;}
+.visual .mainImg .img img {width: 90%;}
 
 .visual .mainText {
     float: left; width: 50%;
@@ -258,6 +258,60 @@ header {}
 }
 
 
+/* -----------------service--------------- */
+.service {padding: 190px 0;}
+.service .box .img {margin-top: 60px;}
+.service .box.design {
+    margin-top: -30%;
+    width: 45%;
+    border-top: 1px solid #ccae76;
+    padding-top: 60px;
+}
+.service .img img {width: 100%;}
+.service .img.animate__motion::after {
+    background-color: #ffebd3;
+}
+
+
+/* service영역 배경색 변경 */
+body {transition: 0.4s;}
+body.on {background-color: #ffebd3;}
+
+
+
+/* -----------------customer--------------- */
+.customer {
+    background: url(../img/img_04.jpg) no-repeat center;
+    background-size: cover;
+    text-align: center;
+    padding: 160px 0;
+    /* background-attachment: fixed; ❗배경이 영역안에서 움직이는 효과
+    margin-bottom: 100vh; */
+}
+.customer .tit {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.customer .txt {
+    color: #777;
+}
+
+/* --------------------team------------------- */
+.team {
+    position: relative;
+    padding: 190px 0;
+}
+.team .box.left {
+    text-align: right;
+    padding-right: 80px;
+    box-sizing: border-box;
+}
+.team .box .tit {margin-top: 40px;}
+.team .box .txt {margin: 30px 0;}
+.team .box .img {margin-top: 100px;}
+
+
 
 /* -------------이미지 애니메이션--------------- */
 .img.animate__motion {
@@ -271,7 +325,7 @@ header {}
     100% {transform: translateY(0px);}
 }
 
-.img.animate__motion::after {
+.img.animate__motion::after { /* 덮어진 bgc가 사라지면서 이미지 보이게 함 */
     content: '';
     position: absolute;
     top: 0; left: 0;
@@ -284,6 +338,12 @@ header {}
     0% {height: 90%;}
     100% {height: 0;}
 }
+
+.team .img.animate__motion::after {
+    display: none;
+}
+
+
 
 
 /* -------------텍스트 애니메이션--------------- */
@@ -394,4 +454,158 @@ header {}
 @keyframes dash {
     0% {stroke-dashoffset: 2068px;}
     100% {stroke-dashoffset: 0px;}
+}
+
+
+.team .circleBox {
+    width: 700px;
+    position: absolute;
+    left: 20%; top: -50px;
+    z-index: -1;
+}
+
+
+
+
+/* 💛반응형 미디어쿼리💛 */
+
+/* -----------pc(1401~1720px)-------------- */
+@media (max-width:1720px){
+    .innerheader {
+        max-width: 100%;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    .innerheader .mainmenu .sns {margin-left: 200px;}
+    .visual .mainText {margin-top: 150px;}
+    .visual .mainText .tit {font-size: 62px;}
+}
+
+/* -----------테블릿(1025~1400px)-------------- */
+@media (max-width:1400px){
+    .innerheader .mainmenu .sns li {margin: 0 5px;}
+    .visual .mainText {margin-top: 100px;}
+    .visual .mainText .tit {font-size: 46px;}
+    .visual .mainText .txt {padding: 20px 0 0;}
+    .img img {width: 100%;}
+    .inner {
+        width: 100%;
+        padding: 0 30px ;
+        box-sizing: border-box;
+    }
+    .jurnal {overflow: hidden;}
+    .jurnal .scroll {display: none;}
+    .jurnal .circleBox {
+        right: -10%; top: 0;
+    }
+    .jurnal .img img {width: 90%;}
+}
+
+/* -----------테블릿(767~1024px)-------------- */
+@media (max-width:1024px){
+    .innerheader {height: 80px; line-height: 80px;}
+    .innerheader .mainmenu {display: none;}
+    .menuOpen .open::before {display: none;}
+    .menuOpen .open {
+        top: 0;
+        transform: none;
+        padding: 0;
+        width: 70px; height: 80px;
+    }
+    .visual .mainImg {width: 100%; float: none;}
+    .visual .mainImg .img img {width: 100%;}
+    .visual .mainText {
+        width: 100%; float: none;
+        margin-top: 50px;
+        padding-left: 30px;
+        box-sizing: border-box;
+    }
+    section .inner .box {width: 100%; float: none;}
+    .jurnal {padding: 80px 0;}
+    .jurnal .img img {width: 100%;}
+    .jurnal .circleBox {top: 200px;}
+    .jurnal .box .img {
+        padding-top: 0;
+        width: 80%; margin: 0 auto 50px;
+    }
+    .service {padding: 80px 0;}
+    .service .txt {margin-top: 20px;}
+    .service .img img {
+        width: 70%;
+        margin: 50px auto 0;
+        display: block;
+    }
+    .service .box.design {
+        margin-top: 50px;
+        width: 100%;
+    }
+    .service .box.design .img img {
+        margin: 50px 0 0; /* 위에서 잡은 마진효과 벗어나기 */
+    }
+    .service .box.design .tit {
+        font-size: 35px;
+    }
+    .customer {padding: 120px 0;}
+    .customer .tit {font-size: 30px;}
+}
+
+
+
+/* -----------모바일(321~676px)-------------- */
+@media (max-width:767px){
+    body {font-size: 13px;}
+    .innerheader {height: 60px; line-height: 60px;}
+    .menuOpen .open {
+        padding: 0 20px;
+        width: 52px; height: 60px;
+    }
+    .menuOpen .open img {height: 38px;}
+    .visual .mainText .tit {font-size: 38px;}
+    .menuOpen .menuWrap .close:nth-child(1) {
+        top: 20px; left: 20px;
+        transform: none;
+    }
+    .menuOpen .menuWrap .close.en {display: none;}
+    .menuOpen .menuWrap .tit {
+        left: 20px;
+        font-size: 40px;
+    }
+    .visual {padding: 0 20px;}
+    .tit {font-size: 30px;}
+    .inner {padding: 0 20px;}
+    .jurnal {padding: 50px 0;}
+    .jurnal .circleBox {top: 10%; right: -4%;}
+    .jurnal .box .img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .jurnal .box .tit {margin-bottom: 20px;}
+    .jurnal .box ul li {margin-bottom: 20px;}
+    .jurnal .box ul li h3 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .jurnal .box ul li p {
+        width: 100%;
+        font-size: 12px;
+    }
+    .jurnal .more_btn {margin-left: 0;}
+    .service {padding: 50px 0;}
+    .service .img img {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .service .box.design {padding-top: 50px;}
+    .service .box.design .tit {font-size: 25px;}
+    .customer {padding: 80px 20px;}
+    .customer .tit {font-size: 25px;}
+}
+
+/* -----------모바일(0~320px)-------------- */
+@media (max-width:320px){
+    .tit .en_s {font-size: 16px;}
+    .visual .mainText {padding-left: 0;}
+    .visual .mainText .tit {font-size: 27px;}
+    .txt p {font-size: 12px;}
+    .visual .mainText .more_btn {font-size: 11px;}
 }
